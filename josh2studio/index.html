@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Josh2Studio</title>
+</head>
+<body>
+
+  <!-- HEADER & NAVBAR -->
+  <div class="header">
+    <h1>Josh2Studio</h1>
+    <nav class="navbar">
+      <span class="nav-brand">Menu</span>
+      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+      <div class="nav-links" id="nav-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </div>
+
+  <main id="home">
+
+    <p class="tagline">Create • Inspire • Design • Develop</p>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <h2>About Josh2Studio</h2>
+      <p>Josh2Studio is a creative digital brand focused on inspiring people, creating content, designing graphics, building websites, and developing apps.</p>
+      <h3>Skills</h3>
+      <details>
+        <summary>Click to see my Skills</summary>
+        <p>Coding<br>Writing<br>Music</p>
+      </details>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services">
+      <h2>Our Services</h2>
+      <div class="container">
+        <div class="box">Graphic Design</div>
+        <div class="box">Website Development</div>
+        <div class="box">App Development</div>
+        <div class="box">Content Creation</div>
+      </div>
+      <h3>Graphic Design</h3>
+      <p>We create logos, flyers, banners, social media posts and other creative designs for businesses and individuals.</p>
+      <h3>Website Development</h3>
+      <p>We build modern, responsive, and professional websites for businesses, organizations, and personal brands.</p>
+      <h3>App Development</h3>
+      <p>We develop web and mobile applications designed to solve real-world problems.</p>
+      <h3>Content Creation</h3>
+      <p>We create edifying content that helps you explore, create, and be inspired.</p>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section id="portfolio">
+      <h2>Portfolio</h2>
+      <p>Explore some of our recent projects and creative works.</p>
+
+      <h3>Graphic Design</h3>
+      <div class="portfolio-grid">
+        <div class="portfolio-item clickable" onclick="openLightbox(['images/Business poster 1.jpg','images/Business poster 2.png','images/Business poster 3.png'], 'Business Posters')">
+          <div class="portfolio-thumb" style="background-image:url('images/Business poster 1.jpg')"></div>
+          <p class="portfolio-label">Business Posters</p>
+        </div>
+        <div class="portfolio-item clickable" onclick="openLightbox(['images/Church poster 1.jpg'], 'Church Posters')">
+          <div class="portfolio-thumb" style="background-image:url('images/Church poster 1.jpg')"></div>
+          <p class="portfolio-label">Church Posters</p>
+        </div>
+        <div class="portfolio-item clickable" onclick="openLightbox(['images/Logo design 1.jpg'], 'Logo Designs')">
+          <div class="portfolio-thumb" style="background-image:url('images/Logo design 1.jpg')"></div>
+          <p class="portfolio-label">Logo Designs</p>
+        </div>
+        <div class="portfolio-item not-updated" onclick="showNotUpdated(this)">
+          <div class="portfolio-thumb placeholder">🖼️</div>
+          <p class="portfolio-label">Social Media Flyers</p>
+        </div>
+        <div class="portfolio-item not-updated" onclick="showNotUpdated(this)">
+          <div class="portfolio-thumb placeholder">🖼️</div>
+          <p class="portfolio-label">Birthday Flyers</p>
+        </div>
+      </div>
+
+      <h3>Website Development</h3>
+      <div class="portfolio-grid">
+        <div class="portfolio-item not-updated" onclick="showNotUpdated(this)">
+          <div class="portfolio-thumb placeholder">💻</div>
+          <p class="portfolio-label">Business Websites</p>
+        </div>
+        <div class="portfolio-item not-updated" onclick="showNotUpdated(this)">
+          <div class="portfolio-thumb placeholder">💻</div>
+          <p class="portfolio-label">Portfolio Websites</p>
+        </div>
+        <div class="portfolio-item not-updated" onclick="showNotUpdated(this)">
+          <div class="portfolio-thumb placeholder">💻</div>
+          <p class="portfolio-label">Landing Pages</p>
+        </div>
+      </div>
+
+      <h3>App Development</h3>
+      <div class="portfolio-grid">
+        <div class="portfolio-item not-updated" onclick="showNotUpdated(this)">
+          <div class="portfolio-thumb placeholder">📱</div>
+          <p class="portfolio-label">Mobile Applications</p>
+        </div>
+        <div class="portfolio-item not-updated" onclick="showNotUpdated(this)">
+          <div class="portfolio-thumb placeholder">🌐</div>
+          <p class="portfolio-label">Web Applications</p>
+        </div>
+      </div>
+
+      <h3>Content Creation</h3>
+      <div class="portfolio-grid">
+        <div class="portfolio-item not-updated" onclick="showNotUpdated(this)">
+          <div class="portfolio-thumb placeholder">🎬</div>
+          <p class="portfolio-label">Inspiration Videos</p>
+        </div>
+        <div class="portfolio-item not-updated" onclick="showNotUpdated(this)">
+          <div class="portfolio-thumb placeholder">📚</div>
+          <p class="portfolio-label">Educational Content</p>
+        </div>
+        <div class="portfolio-item not-updated" onclick="showNotUpdated(this)">
+          <div class="portfolio-thumb placeholder">✨</div>
+          <p class="portfolio-label">Creative Projects</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT FORM -->
+    <section id="contact">
+      <h2>Contact Us</h2>
+      <p>Let's connect and work together.</p>
+
+      <!-- Formspree success/error messages -->
+      <div data-fs-success class="fs-success">✅ Thank you! Your message has been received. We will get back to you soon.</div>
+      <div data-fs-error class="fs-error">⚠️ Something went wrong. Please try again.</div>
+
+      <form id="contact-form">
+        <label>Name</label>
+        <input type="text" name="name" placeholder="Your name" data-fs-field required />
+        <span data-fs-error="name" class="field-error"></span>
+
+        <label>Phone Number</label>
+        <input type="text" name="phone" placeholder="Your phone number" data-fs-field required />
+        <span data-fs-error="phone" class="field-error"></span>
+
+        <label>Email</label>
+        <input type="email" name="email" placeholder="Your email address" data-fs-field required />
+        <span data-fs-error="email" class="field-error"></span>
+
+        <label>Service</label>
+        <select name="service" data-fs-field required>
+          <option value="">-- Select a service --</option>
+          <option>Video Editing</option>
+          <option>Graphics Design</option>
+          <option>Content Creation</option>
+          <option>Website Development</option>
+          <option>App Development</option>
+        </select>
+        <span data-fs-error="service" class="field-error"></span>
+
+        <label>Message</label>
+        <textarea name="message" placeholder="How can we be of help today..." data-fs-field required></textarea>
+        <span data-fs-error="message" class="field-error"></span>
+
+        <button type="submit" data-fs-submit-btn>Send Message</button>
+      </form>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <h2>Find Us Online</h2>
+    <p>
+      <a href="https://facebook.com/josh2Studio" target="_blank">Facebook</a>
+      <a href="mailto:joshuaetuma204@gmail.com">Send an Email</a>
+      <a href="https://wa.me/2348105772646" target="_blank">Chat on WhatsApp</a>
+    </p>
+    <p>©2026 Josh2Studio. All rights reserved.</p>
+  </footer>
+
+  <!-- LIGHTBOX -->
+  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <div class="lightbox-box" onclick="event.stopPropagation()">
+      <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+      <h3 id="lightbox-title"></h3>
+      <div class="lightbox-images" id="lightbox-images"></div>
+    </div>
+  </div>
+
+  <!-- Formspree Ajax library -->
+  <script>
+    window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+    formspree('initForm', { formElement: '#contact-form', formId: 'xwvdynaa' });
+  </script>
+  <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
+
+  <script src="script.js"></script>
+</body>
+</html>
